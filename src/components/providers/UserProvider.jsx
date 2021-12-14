@@ -17,14 +17,13 @@ const UserProvider = ({ children }) => {
       })
   }, [])
 
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>
+  return <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
 }
 
 const useUser = () => {
   const context = useContext(UserContext)
 
   if (context === undefined) throw new Error(`"you're cookies are undefined" -granny`)
-
   return context
 }
 
